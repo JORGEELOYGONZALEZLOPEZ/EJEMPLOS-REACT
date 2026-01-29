@@ -66,3 +66,36 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+.encabezado {
+    height: 200px;
+    width: 113%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #a1b9ff;
+    padding: 0px 20px;
+}
+
+.logo img {
+    width: 40px;
+}
+
+.menu ul{
+    list-style: none;
+    display: flex;
+    font-size: large;
+    font-style: italic;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    gap: 85px;
+}
+.redes ul {
+    list-style: none;
+    display: flex;
+}
+
+.menu li,
+.redes li {
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+}
