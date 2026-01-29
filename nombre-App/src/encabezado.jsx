@@ -4,6 +4,8 @@ import instagram from './assets/instagram.png';
 import whatsapp from './assets/whatsapp.png';
 import youtube from './assets/youtube.png';
 import linkedin from './assets/linkedin.png';
+import gmail from './assets/gmail.png'
+import './Encabezado.css'
 function Encabezado (){
     return (
         <div className='encabezado'>
@@ -42,6 +44,7 @@ function Redes(){
                 <li><img src={whatsapp} alt="whatsapp"/></li>
                 <li><img src={youtube} alt="youtube"/></li>
                 <li><img src={linkedin} alt="linkedin"/></li>
+                <li><img src={gmail} alt="gmail"/></li>
             </ul>
         </div>
     )

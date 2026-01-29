@@ -1,0 +1,87 @@
+.encabezado {
+    height: 200px;
+    width: 98%;
+    display: flex;
+    border-radius: 40px;
+    align-items: center;
+    justify-content: space-between;
+    background: #e9eeff;
+    padding: 0px 20px;
+}
+.logo img {
+    width: 40px;
+}
+.menu ul{
+    list-style: none;
+    display: flex;
+    font-size: large;
+    font-style: italic;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    gap: 55px;
+}
+.menu li {
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    display: flex;
+    width: 160px;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    border-radius: 20px;
+    background-color: rgb(0, 252, 239);
+}
+.menu li:hover{
+    background-color: rgb(255, 152, 152);
+}
+.redes ul {
+    list-style: none;
+    display: flex;
+}
+.redes li {
+    cursor: pointer;
+}
+.redes li:hover{
+    display: flex;
+    width: 60px;
+    height: 80px;
+}
+.cuerpo {
+    width: 90%;
+    height: 450px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 40px;
+    margin-left: 5%;
+    margin-top: 100px;
+
+}
+
+.interior {
+    width: 85%;
+    height: 350px;
+    display: flex;
+    gap: 100px;
+    padding: 20px;
+    border-radius: 40px;
+    box-shadow: 0 10px 25px rgba(255, 255, 255, 0.2);
+}
+
+.interior div {
+    flex: 1 ;
+    background-color: #fd0000;
+    border-radius: 8px;
+    justify-content: center;
+    align-items: center;
+}
+.interior div img{
+    margin-top: 20px;
+    width: 175px;
+    margin-left: 120px;
+}
+.interior div h3{
+    margin-top: 40px;
+    color: #ffffff;
+    padding: 10px 40px;
+}
