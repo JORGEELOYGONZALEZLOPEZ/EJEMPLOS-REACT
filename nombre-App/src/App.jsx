@@ -1,15 +1,16 @@
 import Encabezado from "./encabezado"
 import Expresiones from "./expresiones"
 import Cuerpo from "./Cuerpo"
-
+import Card1 from "./Card1"
+import './Encabezado.css'
+import Footer from "./Footer"
 function App(){
   return (
-    <div>
+    <div className="body">
       <Encabezado/>
       <Cuerpo/>
-      <Expresiones/>
-      <h1>5C DSM</h1>
-      <h2>Jorge Eloy Gonzalez Lopez</h2>
+      <Card1/>
+      <Footer/>
     </div>
   )
 }

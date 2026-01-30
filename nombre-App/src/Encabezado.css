@@ -1,3 +1,6 @@
+.body{
+    background-color: #dfcbcb;
+}
 .encabezado {
     height: 200px;
     width: 98%;
@@ -54,7 +57,7 @@
     align-items: center;
     border-radius: 40px;
     margin-left: 5%;
-    margin-top: 100px;
+    margin-top: 50px;
 
 }
 
@@ -63,6 +66,8 @@
     height: 350px;
     display: flex;
     gap: 100px;
+    justify-content: center;
+    align-items: center;
     padding: 20px;
     border-radius: 40px;
     box-shadow: 0 10px 25px rgba(255, 255, 255, 0.2);
@@ -70,18 +75,72 @@
 
 .interior div {
     flex: 1 ;
-    background-color: #fd0000;
+    background-color: #6febfc;
     border-radius: 8px;
     justify-content: center;
     align-items: center;
+    box-shadow: 0 10px 175px rgba(30, 233, 240, 0.2);
 }
-.interior div img{
+.interior div div{
+    background-color: #d6edff;
+    border-radius: 20px;
+    display: flex;
     margin-top: 20px;
-    width: 175px;
-    margin-left: 120px;
+    margin-left: 30px;
+    justify-content: center;
+    align-items: center;
+}
+.imagenes{
+    margin-top: 10px;
+    width: 350px;
+    height: 200px;
 }
 .interior div h3{
-    margin-top: 40px;
-    color: #ffffff;
+    margin-top: 10px;
+    color: #000000;
     padding: 10px 40px;
+}
+.card1{
+    margin-top: 50px;
+    height: 500px;
+    width: 100%;
+    background-color: #c8f3dd;
+    display: flex;
+    border-radius: 40px;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 100px 75px rgba(238, 255, 0, 0.2);
+}
+#card2{
+    height: 500px;
+    width: 60%;
+    display: flex;
+    justify-content: center;
+}
+.footer {
+    width: 100%;
+    margin-top: 200px;
+    background-color: #1f2933; /* gris oscuro elegante */
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.card3 {
+    width: 90%;
+    max-width: 1000px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #ffffff;
+    flex-wrap: wrap;
+}
+
+.card3 div {
+    margin: 5px 0;
+}
+
+.card3 h2 {
+    font-size: 16px;
+    font-weight: 400;
 }
