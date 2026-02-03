@@ -36,6 +36,7 @@
 }
 .menu li:hover{
     background-color: rgb(255, 152, 152);
+    box-shadow: 0 1px 25px 25px rgb(255, 0, 0);
 }
 .redes ul {
     list-style: none;
@@ -70,35 +71,40 @@
     align-items: center;
     padding: 20px;
     border-radius: 40px;
-    box-shadow: 0 10px 25px rgba(255, 255, 255, 0.2);
 }
 
 .interior div {
     flex: 1 ;
-    background-color: #6febfc;
     border-radius: 8px;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 10px 175px rgba(30, 233, 240, 0.2);
 }
 .interior div div{
-    background-color: #d6edff;
-    border-radius: 20px;
     display: flex;
     margin-top: 20px;
     margin-left: 30px;
+    display: flex;
     justify-content: center;
     align-items: center;
 }
 .imagenes{
     margin-top: 10px;
-    width: 350px;
-    height: 200px;
 }
 .interior div h3{
     margin-top: 10px;
     color: #000000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 10px 40px;
+}
+.interior div p{
+    margin-top: 10px;
+    color: #000000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 90px;
 }
 .card1{
     margin-top: 50px;

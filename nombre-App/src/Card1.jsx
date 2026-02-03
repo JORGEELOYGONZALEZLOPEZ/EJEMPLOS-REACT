@@ -1,17 +1,17 @@
 import './Encabezado.css'
-import imagen from './assets/goku3.png'
-function Card1 (){
+function Card1 (props){
+    let user = props 
+    console.info(user)
+    if(user.name!="") {
     return(
         <div className="card1">
-            <Imagen/>
+            <h3>Seccion de promociones</h3>
+            <p>En esta seccion se da a conocer la informacion correspondiente a las promociones</p>
         </div>
     )
-}
-function Imagen (){
-    return(
-        <div id='card2'>
-            <img src={imagen} alt="img" />
-        </div>
+    }
+    return (
+        <div><h3>No hay datos</h3></div>
     )
 }
 export default Card1
