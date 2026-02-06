@@ -5,6 +5,8 @@ import imagen3 from './assets/goku2.png'
 import Card1 from "./Card1"
 import PropTypes from 'prop-types';
 import Formulario from './Formulario'
+import Productos from './Productos'
+import AcercaDe from './AcercaDe'
 
 function Cuerpo({vista}){
     const vistas={
@@ -12,7 +14,7 @@ function Cuerpo({vista}){
         AcercaDe: <AcercaDe/>,
         Productos: <Productos/>,
         Sucursales: <Sucursales/>,
-        Contactos: <Contactos/>
+        Contactos: <Formulario/>
     }
     return(
         <div className='ExpresionesDiv'>
@@ -32,24 +34,9 @@ function Inicio() {
     );
 }
 
-function AcercaDe(){
-    return <h2>Acerca de nosotros</h2>;
-}
-
-function Productos(){
-    return <h2>Productos</h2>;
-}
 
 function Sucursales(){
     return <h2>Sucursales</h2>;
-}
-
-function Contactos(){
-    return (
-        <div>
-            <Formulario/>
-        </div>
-    )
 }
 
 function TarjetaComponent(){

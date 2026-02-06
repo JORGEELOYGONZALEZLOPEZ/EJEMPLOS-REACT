@@ -38,28 +38,24 @@ function Contacto() {
         Nombre:
         <input type="text" name="nombre" value={formData.nombre} onChange={handleChange} required/>
       </label>
-
       <br /><br />
 
       <label className="form-group">
         Edad:
         <input type="number" name="edad" value={formData.edad} onChange={handleChange} required/>
       </label>
-
       <br /><br />
 
       <label className="form-group">
         Email:
         <input type="email" name="email" value={formData.email} onChange={handleChange} required/>
       </label>
-
       <br /><br />
 
       <label className="form-group">
         Contraseña:
         <input type='password' name="mensaje" value={formData.contraseña} onChange={handleChange}/>
       </label>  
-
       <br /><br />
 
       <button type="submit">Enviar</button>

@@ -137,6 +137,7 @@
     background-color: #1f2933; /* gris oscuro elegante */
     padding: 20px 0;
     display: flex;
+    margin-top: 300px;
     align-items: center;
     justify-content: center;
 }
