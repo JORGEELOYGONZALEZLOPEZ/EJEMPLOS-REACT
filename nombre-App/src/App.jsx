@@ -1,14 +1,15 @@
 import Encabezado from "./encabezado"
 import Cuerpo from "./Cuerpo"
-import Card1 from "./Card1"
 import './Encabezado.css'
 import Footer from "./Footer"
+import { useState } from "react";
+
 function App(){
+  const [vista, setVista] = useState("Inicio");
   return (
     <div className="body">
-      <Encabezado/>
-      <Cuerpo/>
-      <Card1 name='Jorge'/>
+      <Encabezado cambiarVista={setVista}/>
+      <Cuerpo vista={vista}/>
       <Footer/>
     </div>
   )

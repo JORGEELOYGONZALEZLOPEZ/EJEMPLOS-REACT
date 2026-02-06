@@ -1,14 +1,19 @@
 .body{
-    background-color: #dfcbcb;
+    height: auto;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(rgb(255, 0, 0), orange, purple);
 }
 .encabezado {
     height: 200px;
-    width: 98%;
     display: flex;
     border-radius: 40px;
     align-items: center;
     justify-content: space-between;
     background: #e9eeff;
+    background: linear-gradient(rgb(255, 136, 136), rgb(255, 206, 114), rgb(255, 111, 255));
     padding: 0px 20px;
 }
 .logo img {
@@ -42,24 +47,26 @@
     list-style: none;
     display: flex;
 }
+.redes img{
+    width: 30px;
+    height: 30px;
+}
 .redes li {
     cursor: pointer;
 }
-.redes li:hover{
-    display: flex;
-    width: 60px;
+.redes img:hover{
+    width: 80px;
     height: 80px;
 }
 .cuerpo {
     width: 90%;
-    height: 450px;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 40px;
     margin-left: 5%;
     margin-top: 50px;
-
+    flex-grow: 1;
 }
 
 .interior {
@@ -109,6 +116,7 @@
 .card1{
     margin-top: 50px;
     height: 500px;
+    margin-bottom: 200px;
     width: 100%;
     background-color: #c8f3dd;
     display: flex;
@@ -125,10 +133,11 @@
 }
 .footer {
     width: 100%;
-    margin-top: 200px;
+    height: 100px;
     background-color: #1f2933; /* gris oscuro elegante */
     padding: 20px 0;
     display: flex;
+    align-items: center;
     justify-content: center;
 }
 
