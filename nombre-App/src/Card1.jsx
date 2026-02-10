@@ -1,5 +1,7 @@
+import { APIProvider, Map, AdvancedMarket, Pin } from '@vis.gl/react-google-maps';
 import './Encabezado.css'
 function Card1 (props){
+    const position = {lat: 20.285588185550335, ing:-97.95979875213513}
     let user = props 
     console.info(user)
     if(user.name!="") {
