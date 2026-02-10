@@ -1,5 +1,5 @@
 .conteiner{
-  height: 100vh;
+  height: 150vh;
   width: 90%;
   flex-grow: 1;
   margin-left: 5%;
@@ -20,4 +20,8 @@
 .conteiner img{
     width: 390px;
     margin-left: 40%;
+}
+.conteiner p {
+    font-size: 30px;
+    color: rgb(0, 193, 247);   
 }

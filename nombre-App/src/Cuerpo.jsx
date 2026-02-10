@@ -7,6 +7,7 @@ import PropTypes from 'prop-types';
 import Formulario from './Formulario'
 import Productos from './Productos'
 import AcercaDe from './AcercaDe'
+import Sucursales from './Sucursales'
 
 function Cuerpo({vista}){
     const vistas={
@@ -32,11 +33,6 @@ function Inicio() {
         </>
         </div>
     );
-}
-
-
-function Sucursales(){
-    return <h2>Sucursales</h2>;
 }
 
 function TarjetaComponent(){
