@@ -1,7 +1,6 @@
-import { APIProvider, Map, AdvancedMarket, Pin } from '@vis.gl/react-google-maps';
+import Mapa from './Mapa'
 import './Encabezado.css'
 function Card1 (props){
-    const position = {lat: 20.285588185550335, ing:-97.95979875213513}
     let user = props 
     console.info(user)
     if(user.name!="") {
@@ -9,6 +8,11 @@ function Card1 (props){
         <div className="card1">
             <h3>Seccion de promociones</h3>
             <p>En esta seccion se da a conocer la informacion correspondiente a las promociones</p>
+            <Mapa
+            lat={20.237889239373047} 
+            lng={-97.95704487566034}
+            nombre={"ServiTec Sucursal Centro"}/>
+
         </div>
     )
     }
