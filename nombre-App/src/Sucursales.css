@@ -14,9 +14,8 @@
 
 .card {
     width: 480px;
-    height: 450px;
+    height: 400px;
     display: flex;
-    align-items: center;
     justify-content: center;
     background: #ffffff;
     border-radius: 20px;
