@@ -9,6 +9,7 @@ import Productos from './Productos'
 import AcercaDe from './AcercaDe'
 import Sucursales from './Sucursales'
 import Usuarios from './Usuarios'
+import Carrito from './Carrito'
 
 function Cuerpo({vista}){
     const vistas={
@@ -17,7 +18,8 @@ function Cuerpo({vista}){
         Productos: <Productos/>,
         Sucursales: <Sucursales/>,
         Contactos: <Formulario/>,
-        Usuarios: <Usuarios/>
+        Usuarios: <Usuarios/>,
+        Carrito: <Carrito/>
     }
     return(
         <div className='ExpresionesDiv'>

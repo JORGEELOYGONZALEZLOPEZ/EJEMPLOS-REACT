@@ -35,7 +35,6 @@ function Usuarios() {
                     </tr>
                 </thead>
                 <tbody>
-                    {/* Corregido: usamos 'usuarios.map' en lugar de 'clientes.map' */}
                     {usuarios.map((user) => (
                         <tr key={user.id}>
                             <td>{user.id}</td>
@@ -44,15 +43,10 @@ function Usuarios() {
                             <td>{user.email}</td>
                             <td>{user.address.city}</td>
                             <td style={{ textAlign: "center" }}>
-                                <button style={{ cursor: "pointer" }}>
-                                    📝 Editar
-                                </button>
+                                <button style={{ cursor: "pointer" }}>📝 Editar</button>
                             </td>
-                            {/* Columna para Eliminar */}
                             <td style={{ textAlign: "center" }}>
-                                <button style={{ cursor: "pointer", color: "red" }}>
-                                    🗑️ Eliminar
-                                </button>
+                                <button style={{ cursor: "pointer", color: "red" }}>🗑️ Eliminar</button>
                             </td>
                         </tr>
                     ))}

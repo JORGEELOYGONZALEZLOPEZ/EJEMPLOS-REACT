@@ -1,6 +1,7 @@
 import api from "./Services/api";
 import { useEffect, useState } from "react";
 import './Productos.css';
+import RegistrarProductos from './RegistrarProductos';
 
 function Productos(){
     const [productos, setProductos] = useState([]);
@@ -23,6 +24,7 @@ function Productos(){
 
         return(
             <div>
+                <RegistrarProductos/>
                 <main className="classMain">
                     <header>
                         <h1>Nuestro Catalogo Tecnologico</h1>
@@ -31,8 +33,7 @@ function Productos(){
                     {productos.map((producto) =>(
                         <article key={producto.id} className="classArticle">
                             <img
-                                src={producto.image}
-                                alt={producto.title}
+                                src={producto.image} alt={producto.title}
                             />
                             <span>
                                 {producto.category}
