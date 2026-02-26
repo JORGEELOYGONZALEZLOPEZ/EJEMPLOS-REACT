@@ -1,3 +1,4 @@
+import "./RegistrarProductos"
 import api from "./Services/api";
 import { useEffect, useState } from "react";
 import './Productos.css';
@@ -24,14 +25,16 @@ function Productos(){
 
         return(
             <div>
-                <RegistrarProductos/>
+                <div className="Registrar">
+                    <RegistrarProductos/>
+                </div>
                 <main className="classMain">
                     <header>
                         <h1>Nuestro Catalogo Tecnologico</h1>
                     </header>
 
                     {productos.map((producto) =>(
-                        <article key={producto.id} className="classArticle">
+                        <article    key={producto.id} className="classArticle">
                             <img
                                 src={producto.image} alt={producto.title}
                             />

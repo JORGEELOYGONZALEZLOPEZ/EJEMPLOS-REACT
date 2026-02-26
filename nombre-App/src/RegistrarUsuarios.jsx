@@ -1,4 +1,4 @@
-import "./RegistrarUsuarios"
+import "./RegistrarUsuarios.css"
 import axios from 'axios';
 import React, {useState} from 'react';
 import api from "./Services/api"
@@ -21,7 +21,7 @@ function RegistrarUsuarios (){
         return(
             <div>
                 <h2>Registrar Usuarios</h2>
-                <form action={handleSubmit}>
+                <form onSubmit={handleSubmit}>
                     <input 
                         type="text"
                         placeholder="Nombre de Usuario"

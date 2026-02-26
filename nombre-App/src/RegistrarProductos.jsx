@@ -10,20 +10,20 @@ function RegistrarProductos (){
     const [category, setCategory] = useState('');
     const [image, setImage] = useState('');
     const handleSubmit = async (e) => {
-        e.preventDefault(); //Evita que lapagina se recarge
+        e.preventDefault();
         const nuevoProducto = {title, price, description, category, image};
         try {
             const respuesta = await api.post('/products', nuevoProducto);
             console.log('Producto registrado',  respuesta.data);
             alert('¡Producto guardado con exito!');
         }catch (error){
-            console.error('Error al registrar:', Error);
+            console.error('Error al registrar:', error);
         }
     }
         return(
             <div>
                 <h2>Registrar Productos</h2>
-                <form action={handleSubmit}>
+                <form onSubmit={handleSubmit}>
                     <input 
                         type="text"
                         placeholder="Titulo"
