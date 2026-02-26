@@ -1,3 +1,4 @@
+import RegistrarUsuarios from "./RegistrarUsuarios";
 import api from "./Services/api";
 import { useEffect, useState } from "react";
 
@@ -23,6 +24,7 @@ function Usuarios() {
 
     return (
         <div style={{ padding: "20px" }}>
+            <RegistrarUsuarios/>
             <h1>Lista de Clientes</h1>
             <table border="1" cellPadding="10" style={{ width: "100%", textAlign: "left", borderCollapse: "collapse" }}>
                 <thead>
