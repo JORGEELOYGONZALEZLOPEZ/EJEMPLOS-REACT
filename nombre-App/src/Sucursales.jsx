@@ -40,7 +40,7 @@ function Tarjeta (props){
         </div>
     )
 }
-Sucursales.PropTypes = {
+Sucursales.propTypes = {
     vista: PropTypes.string.isRequired
 };
 export default Sucursales

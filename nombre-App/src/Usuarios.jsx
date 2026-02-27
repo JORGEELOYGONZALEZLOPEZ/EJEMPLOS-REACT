@@ -33,10 +33,9 @@ function Usuarios() {
                 <thead>
                     <tr style={{ backgroundColor: "#f4f4f4" }}>
                         <th>ID</th>
-                        <th>Nombre Completo</th>
-                        <th>Usuario</th>
+                        <th>Nombre</th>
                         <th>Email</th>
-                        <th>Ciudad</th>
+                        <th>Password</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -44,14 +43,13 @@ function Usuarios() {
                         <tr key={user.id}>
                             <td>{user.id}</td>
                             <td>{`${user.name.firstname} ${user.name.lastname}`}</td>
-                            <td>{user.username}</td>
                             <td>{user.email}</td>
-                            <td>{user.address.city}</td>
+                            <td>{user.password}</td>
                             <td style={{ textAlign: "center" }}>
                                 <button style={{ cursor: "pointer" }}>📝 Editar</button>
                             </td>
                             <td style={{ textAlign: "center" }}>
-                                <button style={{ cursor: "pointer", color: "red" }}>🗑️ Eliminar</button>
+                                <button onClick={()=> removeUsuario(user.id)}style={{ cursor: "pointer", color: "red" }}>🗑️ Eliminar</button>
                             </td>
                         </tr>
                     ))}
@@ -60,5 +58,16 @@ function Usuarios() {
         </div>
     );
 }
+const removeUsuario = async (usuarioId) => {
+    try {
+        const response = await api.delete(
+            `/users/${usuarioId}`
+        );
 
+        console.log(response.data);
+        alert('¡Usuario eliminado con exito!');
+    } catch (error){
+        console.error(error);
+    }
+};
 export default Usuarios;

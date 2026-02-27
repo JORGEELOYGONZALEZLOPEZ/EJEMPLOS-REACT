@@ -47,10 +47,23 @@ function Productos(){
                                 {producto.price}
                             </h2>
                             <button>añadir al carrito</button>
+                            <button onClick={()=> removeProducto(producto.id)} >Eliminar</button>
                         </article>
                     ))}
                 </main>
             </div>
         )
 }
+const removeProducto = async (productoId) => {
+    try {
+        const response = await api.delete(
+            `/products/${productoId}`
+        );
+
+        console.log(response.data);
+        alert('¡Producto eliminado con exito!');
+    } catch (error){
+        console.error(error);
+    }
+};
 export default Productos;

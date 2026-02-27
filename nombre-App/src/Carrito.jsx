@@ -25,7 +25,7 @@ function Carrito() {
 
     return (
         <div className="contenedor-carrito">
-            <div>
+            <div className="Registrar">
                 <RegistrarCarrito/>
             </div>
             <header className="carrito-header">
@@ -58,7 +58,7 @@ function Carrito() {
 
                         <div className="acciones-carrito">
                             <button className="btn-editar">Editar Orden</button>
-                            <button className="btn-eliminar">Cancelar</button>
+                            <button onClick={()=> removeCarrito(cart.id)} className="btn-eliminar">Cancelar</button>
                         </div>
                     </div>
                 ))}
@@ -66,5 +66,16 @@ function Carrito() {
         </div>
     );
 }
+const removeCarrito = async (carritoId) => {
+    try {
+        const response = await api.delete(
+            `/carts/${carritoId}`
+        );
 
+        console.log(response.data);
+        alert('¡Carrito eliminado con exito!');
+    } catch (error){
+        console.error(error);
+    }
+};
 export default Carrito;

@@ -62,7 +62,7 @@ function Tarjeta(props){
         </div>
     )
 }
-Cuerpo.PropTypes = {
+Cuerpo.propTypes = {
     vista: PropTypes.string.isRequired
 };
 
