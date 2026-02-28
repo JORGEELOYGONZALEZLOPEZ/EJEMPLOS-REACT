@@ -10,6 +10,7 @@ import AcercaDe from './AcercaDe'
 import Sucursales from './Sucursales'
 import Usuarios from './Usuarios'
 import Carrito from './Carrito'
+import Clima from './Clima'
 
 function Cuerpo({vista}){
     const vistas={
@@ -23,6 +24,7 @@ function Cuerpo({vista}){
     }
     return(
         <div className='ExpresionesDiv'>
+            <Clima/>
             {vistas[vista] || <Inicio/>}
             </div>
     )

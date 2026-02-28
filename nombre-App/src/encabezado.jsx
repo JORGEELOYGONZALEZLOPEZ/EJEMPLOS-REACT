@@ -7,7 +7,6 @@ import linkedin from './assets/linkedin.png';
 import gmail from './assets/gmail.png'
 import './Encabezado.css'
 import PropTypes from 'prop-types';
-import Clima from './Clima';
 function Encabezado ({cambiarVista}){
     return (
         <div className='encabezado'>
@@ -50,7 +49,7 @@ function Redes(){
                 <li><img src={linkedin} alt="linkedin"/></li>
                 <li><img src={gmail} alt="gmail"/></li>
             </ul>
-            <Clima/>
+            
         </div>
     )
 }
