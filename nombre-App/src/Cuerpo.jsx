@@ -1,16 +1,17 @@
-import './Encabezado.css'
-import imagen1 from './assets/goku.png'
-import imagen2 from './assets/goku1.png'
-import imagen3 from './assets/goku2.png'
-import Card1 from "./Card1"
+import './Encabezado.css';
+import imagen1 from './assets/goku.png';
+import imagen2 from './assets/goku1.png';
+import imagen3 from './assets/goku2.png';
+import Card1 from "./Card1";
 import PropTypes from 'prop-types';
-import Formulario from './Formulario'
-import Productos from './Productos'
-import AcercaDe from './AcercaDe'
-import Sucursales from './Sucursales'
-import Usuarios from './Usuarios'
-import Carrito from './Carrito'
-import Clima from './Clima'
+import Formulario from './Formulario';
+import Productos from './Productos';
+import AcercaDe from './AcercaDe';
+import Sucursales from './Sucursales';
+import Usuarios from './Usuarios';
+import Carrito from './Carrito';
+import Clima from './Clima';
+import Login from './Login';
 
 function Cuerpo({vista}){
     const vistas={
@@ -20,7 +21,8 @@ function Cuerpo({vista}){
         Sucursales: <Sucursales/>,
         Contactos: <Formulario/>,
         Usuarios: <Usuarios/>,
-        Carrito: <Carrito/>
+        Carrito: <Carrito/>,
+        Login: <Login/>
     }
     return(
         <div className='ExpresionesDiv'>

@@ -4,9 +4,10 @@ import instagram from './assets/instagram.png';
 import whatsapp from './assets/whatsapp.png';
 import youtube from './assets/youtube.png';
 import linkedin from './assets/linkedin.png';
-import gmail from './assets/gmail.png'
-import './Encabezado.css'
+import gmail from './assets/gmail.png';
+import './Encabezado.css';
 import PropTypes from 'prop-types';
+import { useAuth } from './AuthContext';
 function Encabezado ({cambiarVista}){
     return (
         <div className='encabezado'>
@@ -24,6 +25,7 @@ function Logotipo(){
     )
 }
 function Menu({cambiarVista}){
+    const { isLoggedIn } = useAuth;
     return(
         <nav className='menu'>
             <ul>
@@ -32,8 +34,15 @@ function Menu({cambiarVista}){
                 <li onClick={() => cambiarVista("Productos")}>Productos</li>
                 <li onClick={() => cambiarVista("Contactos")}>Contactos</li>
                 <li onClick={() => cambiarVista("Sucursales")}>Sucursales</li>
-                <li onClick={() => cambiarVista("Usuarios")}>Usuarios</li>
-                <li onClick={() => cambiarVista("Carrito")}>Carrito</li>
+                {isLoggedIn ? (
+                    <>
+                        <li onClick={() => cambiarVista("Usuarios")}>Usuarios</li>
+                        <li onClick={() => cambiarVista("Carrito")}>Carrito</li>
+                        <li>Cerrar Sesion</li>
+                    </>
+                ) : (
+                    <li onClick={() => cambiarVista("Login")}>Login</li>
+                )}
             </ul>
         </nav>
     )

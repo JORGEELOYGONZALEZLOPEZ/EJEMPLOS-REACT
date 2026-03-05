@@ -32,13 +32,14 @@
     color: rgb(0, 0, 0);
     cursor: pointer;
     display: flex;
-    width: 130px;
+    width: 110px;
     align-items: center;
     justify-content: center;
     height: 50px;
     border-radius: 20px;
     background-color: rgb(0, 252, 239);
 }
+
 .menu li:hover{
     background-color: rgb(255, 152, 152);
     box-shadow: 0 1px 25px 25px rgb(255, 0, 0);
