@@ -63,4 +63,4 @@ function Contacto() {
     </div>
   );
 }
-export default Formulario
+export default Formulario;

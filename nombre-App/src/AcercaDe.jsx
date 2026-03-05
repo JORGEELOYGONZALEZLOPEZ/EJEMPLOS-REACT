@@ -18,4 +18,4 @@ Nuestro equipo está formado por personas apasionadas, responsables y creativas,
         </div>
     )
 }
-export default AcercaDe
+export default AcercaDe;

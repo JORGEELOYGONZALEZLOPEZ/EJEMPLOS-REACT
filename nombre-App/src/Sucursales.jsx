@@ -43,4 +43,4 @@ function Tarjeta (props){
 Sucursales.propTypes = {
     vista: PropTypes.string.isRequired
 };
-export default Sucursales
+export default Sucursales;

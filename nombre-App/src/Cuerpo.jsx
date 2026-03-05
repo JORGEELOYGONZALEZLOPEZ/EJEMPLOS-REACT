@@ -68,4 +68,4 @@ Cuerpo.propTypes = {
     vista: PropTypes.string.isRequired
 };
 
-export default Cuerpo
+export default Cuerpo;

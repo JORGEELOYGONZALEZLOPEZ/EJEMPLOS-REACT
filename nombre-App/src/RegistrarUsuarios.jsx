@@ -4,22 +4,22 @@ import React, {useEffect, useState} from 'react';
 import api from "./Services/api"
 
 function RegistrarUsuarios ({usuarioEditado, limpiarSeleccion, onActualizacionExitosa}){
-    const [user, setUser] = useState('');
+    const [user, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
     useEffect(() =>{
         if (usuarioEditado){
-            setUsername(usuarioEditado.user);
+            setUsername(usuarioEditado.username);
             setEmail(usuarioEditado.email);
-            setPassword('');//Normalmente la contraseña no se carga poir seguridad
+            setPassword('');//Normalmente la contraseña no se carga por seguridad
         }else{
             resetForm();
         }
     }, [usuarioEditado]);
 
     const resetForm = () => {
-        setUser('');
+        setUsername('');
         setEmail('');
         setPassword('');
     };
@@ -54,7 +54,7 @@ function RegistrarUsuarios ({usuarioEditado, limpiarSeleccion, onActualizacionEx
                         type="text"
                         placeholder="Nombre de Usuario"
                         value={user}
-                        onChange={(e) => setUser(e.target.value)}
+                        onChange={(e) => setUsername(e.target.value)}
                     />
                     <input 
                         type="email"

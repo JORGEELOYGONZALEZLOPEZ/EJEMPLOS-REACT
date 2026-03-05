@@ -24,4 +24,4 @@ function Mapa ({lat, lng, nombre}){
         </div>
     )
 }
-export default Mapa
+export default Mapa;

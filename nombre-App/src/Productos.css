@@ -1,0 +1,126 @@
+/* Configuración General */
+.classMain {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: 'Inter', sans-serif;
+}
+
+header h1 {
+    text-align: center;
+    color: #2c3e50;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    border-bottom: 3px solid #4A90E2;
+    display: inline-block;
+    width: 100%;
+    padding-bottom: 10px;
+}
+
+
+/* Grid de Productos */
+.classMain {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+/* Tarjeta de Producto (Article) */
+.classArticle {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.classArticle:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+/* Imagen del Producto */
+.classArticle img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain; /* Para que la tecnología se vea completa */
+    margin-bottom: 15px;
+}
+
+/* Etiquetas y Textos */
+.classArticle span {
+    background: #e1f0ff;
+    color: #4A90E2;
+    font-size: 0.75rem;
+    font-weight: bold;
+    padding: 5px 12px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    align-self: flex-start;
+}
+
+.classArticle h2 {
+    font-size: 1.25rem;
+    color: #333;
+    margin: 10px 0;
+    height: 50px; /* Asegura alineación */
+    overflow: hidden;
+}
+
+.classArticle p {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.4;
+    height: 60px;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+/* Precio */
+.classArticle h2:last-of-type {
+    color: #27ae60;
+    font-size: 1.5rem;
+    margin: 10px 0;
+    height: auto;
+}
+
+/* Botones */
+.classArticle button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 8px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.classArticle button:first-of-type {
+    background-color: #4A90E2;
+    color: white;
+}
+
+.classArticle button:first-of-type:hover {
+    background-color: #357ABD;
+}
+
+.classArticle button:last-of-type {
+    background-color: transparent;
+    color: #e74c3c;
+    border: 1px solid #e74c3c;
+}
+
+.classArticle button:last-of-type:hover {
+    background-color: #e74c3c;
+    color: white;
+}
+.Titulo {
+    width: 100%;
+    text-align: center; /* O left si prefieres */
+    padding: 40px 0;
+}

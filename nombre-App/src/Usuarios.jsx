@@ -6,18 +6,33 @@ import { useEffect, useState } from "react";
 function Usuarios() {
     const [usuarios, setUsuarios] = useState([]);
     const [loading, setLoading] = useState(true); // Corregido: sin corchetes
-    const [usuarioSeleccionado, setUsuarioSelccionado] = useState(null);
+    const [usuarioSeleccionado, setUsuarioSeleccionado] = useState(null);
 
         const obtenerUsuarios = async () => {
             try {
                 const response = await api.get("users");
-                setUsuarios(response.data);
+                setUsuarios(response.data); 
             } catch (error) {
                 console.error("Error al obtener usuarios: ", error);
             } finally {
                 setLoading(false);
             }
         };
+
+        const removeUsuario = async (usuarioId) => {
+            try {
+                const response = await api.delete(
+                    `/users/${usuarioId}`
+                );
+
+                console.log(response.data);
+                alert('¡Usuario eliminado con exito!');
+                obtenerUsuarios();
+            } catch (error){
+                console.error(error);
+            }
+        };
+
         useEffect(() => {
             obtenerUsuarios();
     }, []);
@@ -26,10 +41,14 @@ function Usuarios() {
 
     return (
         <div style={{ padding: "20px" }}>
-                <RegistrarUsuarios/>
+            <div className='Registrar'>
+                <RegistrarUsuarios
                 usuarioEditado={usuarioSeleccionado}
-                limpiarSeleccion={() => setUsuarioSelccionado(null)}
+                limpiarSeleccion={() => setUsuarioSeleccionado(null)}
                 onActualizacionExitosa={obtenerUsuarios}
+                />
+                </div>
+                
             <h1>Lista de Clientes</h1>
             <table border="1" cellPadding="10" style={{ width: "100%", textAlign: "left", borderCollapse: "collapse" }}>
                 <thead>
@@ -48,7 +67,7 @@ function Usuarios() {
                             <td>{user.email}</td>
                             <td>{user.password}</td>
                             <td style={{ textAlign: "center" }}>
-                                <button onClick={()=> setUsuarioSelccionado(user)} style={{ cursor: "pointer" }}>📝 Editar</button>
+                                <button onClick={()=> setUsuarioSeleccionado(user)} style={{ cursor: "pointer" }}>📝 Editar</button>
                             </td>
                             <td style={{ textAlign: "center" }}>
                                 <button onClick={()=> removeUsuario(user.id)} style={{ cursor: "pointer", color: "red" }}>🗑️ Eliminar</button>
@@ -60,16 +79,5 @@ function Usuarios() {
         </div>
     );
 }
-const removeUsuario = async (usuarioId) => {
-    try {
-        const response = await api.delete(
-            `/users/${usuarioId}`
-        );
 
-        console.log(response.data);
-        alert('¡Usuario eliminado con exito!');
-    } catch (error){
-        console.error(error);
-    }
-};
 export default Usuarios;

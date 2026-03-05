@@ -30,4 +30,4 @@ function MapaUbicacion(){
         </LoadScript>
     )
 }
-export default MapaUbicacion    
+export default MapaUbicacion;

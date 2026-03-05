@@ -6,8 +6,9 @@ import RegistrarCarrito from './RegistrarCarrito'
 function Carrito() {
     const [carritos, setCarritos] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [carritoSeleccionado, setCarritoSeleccionado] = useState(null);
 
-    useEffect(() => {
+    
         const obtenerCarritos = async () => {
             try {
                 const response = await api.get("/carts");
@@ -18,6 +19,22 @@ function Carrito() {
                 setLoading(false);
             }
         };
+
+        const removeCarrito = async (carritoId) => {
+            try {
+                const response = await api.delete(
+                    `/carts/${carritoId}`
+                );
+
+                console.log(response.data);
+                alert('¡Carrito eliminado con exito!');
+                obtenerCarritos();
+            } catch (error){
+                console.error(error);
+            }
+        };
+
+    useEffect(() => {
         obtenerCarritos();
     }, []);
 
@@ -26,7 +43,11 @@ function Carrito() {
     return (
         <div className="contenedor-carrito">
             <div className="Registrar">
-                <RegistrarCarrito/>
+                <RegistrarCarrito
+                    carritoEditado={carritoSeleccionado}
+                    limpiarSeleccion={() => setCarritoSeleccionado(null)}
+                    onActualizacionExitosa={obtenerCarritos}
+                    />
             </div>
             <header className="carrito-header">
                 <h1>Órdenes de Compra</h1>
@@ -49,7 +70,7 @@ function Carrito() {
                                 {/* SEGUNDO MAPEO: Los productos dentro de ese carrito */}
                                 {cart.products.map((item, index) => (
                                     <li key={index} className="item-producto">
-                                        <span>🆔 Producto ID: {item.productId}</span>
+                                        <span>🆔 Producto ID: {item.products}</span>
                                         <span className="cantidad">Cant: {item.quantity}</span>
                                     </li>
                                 ))}
@@ -57,7 +78,7 @@ function Carrito() {
                         </div>
 
                         <div className="acciones-carrito">
-                            <button className="btn-editar">Editar Orden</button>
+                            <button onClick={()=> setCarritoSeleccionado(cart)} className="btn-editar">Editar Orden</button>
                             <button onClick={()=> removeCarrito(cart.id)} className="btn-eliminar">Cancelar</button>
                         </div>
                     </div>
@@ -66,16 +87,5 @@ function Carrito() {
         </div>
     );
 }
-const removeCarrito = async (carritoId) => {
-    try {
-        const response = await api.delete(
-            `/carts/${carritoId}`
-        );
 
-        console.log(response.data);
-        alert('¡Carrito eliminado con exito!');
-    } catch (error){
-        console.error(error);
-    }
-};
 export default Carrito;

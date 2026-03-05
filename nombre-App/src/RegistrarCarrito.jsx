@@ -1,20 +1,49 @@
 import "./RegistrarCarrito.css"
 import axios from 'axios';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import api from "./Services/api"
 
-function RegistrarCarrito (){
+function RegistrarCarrito ({carritoEditado, limpiarSeleccion, onActualizacionExitosa}){
     const [userId, setUserId] = useState('');
-    const [productoId, setProductoId] = useState('');
-    const [cantidad, setCantidad] = useState('');
+    const [productId, setProducts] = useState('');
+    const [quantity, setCantidad] = useState('');
+
+    useEffect(() =>{
+                if (carritoEditado){
+                    setUserId(carritoEditado.userId);
+                    if (carritoEditado.products && carritoEditado.products.length > 0) {
+                    setProducts(carritoEditado.products[0].productId); 
+                    setCantidad(carritoEditado.products[0].quantity); 
+                    }
+                }else{
+                    resetForm();
+                }
+            }, [carritoEditado]);
+        
+            const resetForm = () => {
+                    setUserId('');
+                    setProducts('');
+                    setCantidad('');
+            };
+
     const handleSubmit = async (e) => {
         e.preventDefault(); //Evita que lapagina se recarge
-        const nuevoCarrito = {userId, productoId, cantidad};
+        const nuevoCarrito = {userId, productId, quantity};
         try {
-            const respuesta = await api.post('/carts', nuevoCarrito);
-            console.log('Carrito registrado',  respuesta.data);
-            alert('¡Carrito guardado con exito!');
-            setUserId(''); setProductoId(''); setCantidad('');
+            if(carritoEditado){
+                //LOGICA DE ACTUALIZAR (PUT)
+                const respuesta = await api.put(`/carts/${carritoEditado.id}`, nuevoCarrito);
+                console.log('Carrito registrado',  respuesta.data);
+                alert('¡Carrito actualizado con exito!');
+                limpiarSeleccion();//limpia el estado en el padre
+            }else{
+                const respuesta = await api.post('/carts', nuevoCarrito);
+                console.log('Carrito registrado',  respuesta.data);
+                alert('¡Carrito guardado con exito!');
+
+            }
+            resetForm();
+            if (onActualizacionExitosa) onActualizacionExitosa(); //Refresca 
         }catch (error){
             console.error('Error al registrar:', Error);
         }
@@ -33,14 +62,14 @@ function RegistrarCarrito (){
                     <input 
                         type="number"
                         placeholder="Id Producto"
-                        value={productoId}
-                        onChange={(e) => setProductoId(e.target.value)}
+                        value={productId}
+                        onChange={(e) => setProducts(e.target.value)}
                         required
                     />
                     <input 
                         type="number"
                         placeholder="Cantidad"
-                        value={cantidad}
+                        value={quantity}
                         onChange={(e) => setCantidad(e.target.value)}
                         required
                     />

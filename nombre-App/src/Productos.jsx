@@ -7,8 +7,9 @@ import RegistrarProductos from './RegistrarProductos';
 function Productos(){
     const [productos, setProductos] = useState([]);
     const [loading, setLoading] = useState([true]);
+    const [productoSeleccionado, setProductoSeleccionado] = useState(null);
 
-    useEffect(() => {
+    
         const obtenerProductos = async () => {
             try{
                 const response = await api.get("products");
@@ -19,17 +20,37 @@ function Productos(){
                 setLoading(false);
             }
         };
-        obtenerProductos();
+
+        const removeProducto = async (productoId) => {
+            try {
+                const response = await api.delete(
+                    `/products/${productoId}`
+                );
+
+                console.log(response.data);
+                alert('¡Producto eliminado con exito!');
+                obtenerProductos();
+            } catch (error){
+                console.error(error);
+            }
+        };
+        useEffect(() => {
+            obtenerProductos();
     }, []);
+    
     if (loading) return <p>Cargando...</p>;
 
         return(
             <div>
                 <div className="Registrar">
-                    <RegistrarProductos/>
+                    <RegistrarProductos
+                    productoEditado={productoSeleccionado}
+                    limpiarSeleccion={() => setProductoSeleccionado(null)}
+                    onActualizacionExitosa={obtenerProductos}
+                />
                 </div>
                 <main className="classMain">
-                    <header>
+                    <header className="Titulo">
                         <h1>Nuestro Catalogo Tecnologico</h1>
                     </header>
 
@@ -47,6 +68,7 @@ function Productos(){
                                 {producto.price}
                             </h2>
                             <button>añadir al carrito</button>
+                            <button onClick={() => setProductoSeleccionado(producto)}>Editar</button>
                             <button onClick={()=> removeProducto(producto.id)} >Eliminar</button>
                         </article>
                     ))}
@@ -54,16 +76,5 @@ function Productos(){
             </div>
         )
 }
-const removeProducto = async (productoId) => {
-    try {
-        const response = await api.delete(
-            `/products/${productoId}`
-        );
 
-        console.log(response.data);
-        alert('¡Producto eliminado con exito!');
-    } catch (error){
-        console.error(error);
-    }
-};
 export default Productos;

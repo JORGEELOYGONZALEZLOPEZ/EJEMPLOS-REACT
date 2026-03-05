@@ -40,4 +40,4 @@ function Lista() {
         </div>
     )
 }
-export default Expresiones
+export default Expresiones;

@@ -14,4 +14,4 @@ function Card1 (props){
         <div><h3>No hay datos</h3></div>
     )
 }
-export default Card1
+export default Card1;
