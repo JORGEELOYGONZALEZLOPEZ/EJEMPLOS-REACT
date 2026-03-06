@@ -25,7 +25,11 @@ function Logotipo(){
     )
 }
 function Menu({cambiarVista}){
-    const { isLoggedIn } = useAuth;
+    const { isLoggedIn, logout } = useAuth();
+    const handleLogout = () => {
+        logout();
+        cambiarVista("Inicio");
+    };
     return(
         <nav className='menu'>
             <ul>
@@ -38,7 +42,7 @@ function Menu({cambiarVista}){
                     <>
                         <li onClick={() => cambiarVista("Usuarios")}>Usuarios</li>
                         <li onClick={() => cambiarVista("Carrito")}>Carrito</li>
-                        <li>Cerrar Sesion</li>
+                        <li onClick={handleLogout}>Cerrar Sesion</li>
                     </>
                 ) : (
                     <li onClick={() => cambiarVista("Login")}>Login</li>

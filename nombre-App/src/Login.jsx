@@ -1,27 +1,43 @@
 import './Login.css';
-import React, { useState} from 'react';
-import LoginUser from "./assets/LoginUser.png"
+import { useState } from "react";
+import api from "./Services/api";
+import { useAuth } from './AuthContext';
 
-function Login (){
-    const [usuario, setUsuario] = useState('');
+function Login ({chVista}){
+    const {Login } = useAuth();
+
+    const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const [recordar, setRecordar] = useState(false);
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // Aquí procesarías el registro (enviar a tu API)
-        console.log("Datos de registro:", { usuario, password, recordar });
-        alert(`¡Usuario ${usuario} registrado con éxito!`);
-        setUsuario('');
-        setPassword('');
+        console.log("Datos de registro:", { username, password});
+
+        try{
+            const credenciales = { username, password };
+            const respuesta = await api.post('/auth/login/', credenciales);
+            if (respuesta.data && respuesta.data.token){
+                Login(respuesta.data.token);
+                alert('Autenticacion autorisada');
+                setUsername('');
+                setPassword('');    
+                chVista("usuarios");
+                
+            }else{
+                alert('Credenciales invalidas');
+            }
+        }catch (error){
+            alert('Error al iniciar sesión'); 
+            console.error('Detalle del error:', error);
+        }
+
     };
 
     const handleCancelar = () => {
-        setUsuario('');
+        setUsername('');
         setPassword('');
-        setRecordar(false);
     };
-            
+
     return (
         <div className="formulario-wrapper">
             <div className="form-card">
@@ -31,10 +47,9 @@ function Login (){
                         <label>Usuario</label>
                         <input 
                             type="text" 
-                            value={usuario} 
-                            onChange={(e) => setUsuario(e.target.value)} 
                             placeholder="Ej. Eloy_gonzalez"
-                            required 
+                            value={username} 
+                            onChange={(e) => setUsername(e.target.value)} 
                         />
                     </div>
 
@@ -42,26 +57,14 @@ function Login (){
                         <label>Contraseña</label>
                         <input 
                             type="password" 
+                            placeholder="••••••••"
                             value={password} 
                             onChange={(e) => setPassword(e.target.value)} 
-                            placeholder="••••••••"
-                            required 
                         />
                     </div>
 
-                    <div className="options-group">
-                        <label className="checkbox-label">
-                            <input 
-                                type="checkbox" 
-                                checked={recordar} 
-                                onChange={(e) => setRecordar(e.target.checked)} 
-                            />
-                            <span>Recordar contraseña</span>
-                        </label>
-                    </div>
-
                     <div className="button-group">
-                        <button type="submit" className="btn-primary">Registrar</button>
+                        <button type="submit" className="btn-primary">Ingresar</button>
                         <button type="button" className="btn-secondary" onClick={handleCancelar}>Cancelar</button>
                     </div>
                 </form>

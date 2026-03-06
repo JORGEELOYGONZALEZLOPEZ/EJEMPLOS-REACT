@@ -13,7 +13,7 @@ import Carrito from './Carrito';
 import Clima from './Clima';
 import Login from './Login';
 
-function Cuerpo({vista}){
+function Cuerpo(props){
     const vistas={
         Inicio: <Inicio/>,
         AcercaDe: <AcercaDe/>,
@@ -22,12 +22,12 @@ function Cuerpo({vista}){
         Contactos: <Formulario/>,
         Usuarios: <Usuarios/>,
         Carrito: <Carrito/>,
-        Login: <Login/>
+        Login: <Login chVista={props.chVista}/>
     }
     return(
         <div className='ExpresionesDiv'>
             <Clima/>
-            {vistas[vista] || <Inicio/>}
+            {vistas[props.vista] || <Inicio/>}
             </div>
     )
 }

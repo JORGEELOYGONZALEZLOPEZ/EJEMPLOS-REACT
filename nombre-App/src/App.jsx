@@ -11,7 +11,7 @@ function App(){
     <div className="body">
       <AuthProvider>
         <Encabezado cambiarVista={setVista}/>
-        <Cuerpo vista={vista}/>
+        <Cuerpo vista={vista} chVista={setVista} />
       </AuthProvider>
       <Footer/>
     </div>
