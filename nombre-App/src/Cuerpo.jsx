@@ -12,6 +12,7 @@ import Usuarios from './Usuarios';
 import Carrito from './Carrito';
 import Clima from './Clima';
 import Login from './Login';
+import Categorias from './Categorias.jsx';
 
 function Cuerpo(props){
     const vistas={
@@ -20,6 +21,7 @@ function Cuerpo(props){
         Productos: <Productos/>,
         Sucursales: <Sucursales/>,
         Contactos: <Formulario/>,
+        Categorias: <Categorias/>,
         Usuarios: <Usuarios/>,
         Carrito: <Carrito/>,
         Login: <Login chVista={props.chVista}/>
